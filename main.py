@@ -64,14 +64,23 @@ bir_sayisi = sifreli_01_hali.count("1")
 print(f"Analiz: Toplam {len(sifreli_01_hali)} bit içerisinde {sifir_sayisi} tane '0' ve {bir_sayisi} tane '1' var.")
 print("Durum: Bitler mükemmel dengelendi.")
 
-# Geri Çözme (Doğrulama için)
+# --- GERİ ÇÖZME ---
+
 def bits_to_text(bits):
     text = ""
     for i in range(0, len(bits), 8):
         byte = bits[i:i+8]
-        text += chr(int(byte, 2))
+        if len(byte) == 8:
+            text += chr(int(byte, 2))
     return text
 
-# Şifreli 01'leri geri çözmek için anahtarla tekrar XOR'luyoruz
-cozulen_bitler, _ = encrypt_decrypt(bits_to_text(sifreli_01_hali), anahtar_sayi)
-print(f"Deşifre Edilen Mesaj: {bits_to_text(sifreli_01_hali)}") # Bu aşamada XOR tekrarlandığı için orijinali döner
+# 1. Şifreli 0-1 dizisini önce karakter formuna çeviriyoruz
+sifreli_metin_formu = bits_to_text(sifreli_01_hali)
+
+# 2. Bu karakterleri anahtarla tekrar XOR işlemine sokuyoruz (Tersini alıyoruz)
+cozulen_bitler, _ = encrypt_decrypt(sifreli_metin_formu, anahtar_sayi)
+
+# 3. Sonuç bitlerini anlamlı metne çevirip yazdırıyoruz
+final_mesaj = bits_to_text(cozulen_bitler)
+
+print(f"Deşifre Edilen Mesaj: {final_mesaj}")
