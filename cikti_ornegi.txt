@@ -1,0 +1,12 @@
+## 📋 Örnek Algoritma Çıktısı
+
+Algoritma çalıştırıldığında elde edilen test verileri aşağıdadır:
+
+**Girdi Metni:** Collatz  
+**Gizli Anahtar (Seed):** 123456789  
+
+**Şifreli 0-1 Dizisi:** `11001100101110101001111011110000010111011000101110101101`
+
+**Deşifre Edilen Mesaj:** Collatz
+
+> **Not:** 56 bitlik bu çıktıda 0 ve 1 oranları Von Neumann düzelticisi sayesinde dengelenmiştir.
