@@ -1,4 +1,5 @@
 import binascii
+from test_rastgelelik import rapor_olustur
 
 # --- 1. ADIM: COLLATZ ANAHTAR ÜRETECİ (Dengeli Bit Üretimi) ---
 def generate_collatz_balanced_bits(seed, length):
@@ -84,3 +85,4 @@ cozulen_bitler, _ = encrypt_decrypt(sifreli_metin_formu, anahtar_sayi)
 final_mesaj = bits_to_text(cozulen_bitler)
 
 print(f"Deşifre Edilen Mesaj: {final_mesaj}")
+rapor_olustur(sifreli_01_hali)
